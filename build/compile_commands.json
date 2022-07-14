@@ -1,7 +1,7 @@
 [
 {
   "directory": "/home/nyanjuimarvin/C++ Projects/Templatized DS/build",
-  "command": "/usr/bin/g++   -g -o CMakeFiles/Templatized_DS.dir/main.cpp.o -c \"/home/nyanjuimarvin/C++ Projects/Templatized DS/main.cpp\"",
+  "command": "/usr/bin/g++   -g -std=gnu++20 -o CMakeFiles/Templatized_DS.dir/main.cpp.o -c \"/home/nyanjuimarvin/C++ Projects/Templatized DS/main.cpp\"",
   "file": "/home/nyanjuimarvin/C++ Projects/Templatized DS/main.cpp"
 }
 ]
