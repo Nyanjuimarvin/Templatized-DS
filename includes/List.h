@@ -57,6 +57,47 @@ public:
         return firstPtr == nullptr;
     }
 
+    /**
+     * @brief Insert Node at front of List
+     *
+     */
+    void insertAtFront( const NODETYPE &value )
+    {
+        ListNode<NODETYPE> *newPtr = getNewNode(value);
+
+        if (isEmpty())
+        {
+            firstPtr = lastPtr = newPtr;
+        }
+        else
+        {
+            //Point new Node to the Node that was previously first
+            newPtr -> nextPtr = firstPtr;
+
+            //Aim firstPtr at the new Node
+            firstPtr = newPtr;
+        }
+    }
+
+    /**
+     * @brief insert Node at the back of the List
+     *
+     */
+    void insertAtBack( const NODETYPE &value )
+    {
+        ListNode<NODETYPE> *newPtr = getNewNode(value);
+
+        if ( isEmpty() )
+        {
+            firstPtr = lastPtr = newPtr;
+        }
+        else
+        {
+            lastPtr -> nextPtr = newPtr;
+            lastPtr = newPtr;
+        }
+    }
+
 private:
     ListNode<NODETYPE> *firstPtr; // ptr to first Node
     ListNode<NODETYPE> *lastPtr;  // ptr to last Node
@@ -65,9 +106,9 @@ private:
      * @brief utility function for new Node allocation
      * @return ListNode object
      */
-    ListNode<NODETYPE> *getnewNode(const NODETYPE &valueOfNode)
+    ListNode<NODETYPE> *getNewNode( const NODETYPE &valueOfNode )
     {
-        return new ListNode<NODETYPE>(valueOfNode);
+        return new ListNode<NODETYPE> (valueOfNode);
     }
 }
 
