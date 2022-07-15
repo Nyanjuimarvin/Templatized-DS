@@ -4,7 +4,7 @@
  * Created:
  *   July 15, 2022, 1:42:24 PM GMT+3
  * Last edited:
- *   July 15, 2022, 1:56:03 PM GMT+3
+ *   July 15, 2022, 2:05:12 PM GMT+3
  * Auto updated?
  *   Yes
  *
@@ -23,6 +23,20 @@ class ListNode
 {
     // Make class List friend -> Access of ListNode private members
     friend class List<NODETYPE>;
+
+public:
+
+    //Default constructor
+    explicit ListNode( const NODETYPE &typeInfo )
+    :data(typeInfo), nextPtr(nullptr)
+    {
+
+    }
+    
+    //get data in ListNode
+    NODETYPE getData() const{
+        return data;
+    }
 
 private:
     NODETYPE data;
