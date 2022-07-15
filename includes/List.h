@@ -24,15 +24,35 @@ public:
     List()
         : firstPtr(nullptr), lastptr(nullptr)
     {
-
     }
 
-/**
- * @brief isEmpty() function
- * @return return true if empty else false
- * 
- */
-    bool isEmpty() const{
+    ~List(){
+
+        if( !isEmpty() ){
+            std::cout << "Destroying Nodes....\n";
+
+            ListNode<NODETYPE> *currentPtr = firstPtr;
+            ListNode<NODETYPE> *tempPtr = nullptr;
+
+            while ( currentPtr != nullptr ){
+                tempPtr = currentPtr;
+                std::cout << tempPtr ->data << std::endl;
+                currentPtr = currentPtr -> nextPtr;
+                delete tempPtr;
+            }
+            
+        }
+
+        std::cout << "Destruction of Nodes Completed \n\n";
+    }
+
+    /**
+     * @brief isEmpty() function
+     * @return true if List is empty, else false
+     *
+     */
+    bool isEmpty() const
+    {
         return firstPtr == nullptr;
     }
 
