@@ -20,27 +20,28 @@ class List
 {
 
 public:
-
     List()
         : firstPtr(nullptr), lastptr(nullptr)
     {
     }
 
-    ~List(){
+    ~List()
+    {
 
-        if( !isEmpty() ){
+        if (!isEmpty())
+        {
             std::cout << "Destroying Nodes....\n";
 
             ListNode<NODETYPE> *currentPtr = firstPtr;
             ListNode<NODETYPE> *tempPtr = nullptr;
 
-            while ( currentPtr != nullptr ){
+            while (currentPtr != nullptr)
+            {
                 tempPtr = currentPtr;
-                std::cout << tempPtr -> data << "\n";
-                currentPtr = currentPtr -> nextPtr;
+                std::cout << tempPtr->data << "\n";
+                currentPtr = currentPtr->nextPtr;
                 delete tempPtr;
             }
-            
         }
 
         std::cout << "Destruction of Nodes Completed \n\n";
@@ -59,6 +60,15 @@ public:
 private:
     ListNode<NODETYPE> *firstPtr; // ptr to first Node
     ListNode<NODETYPE> *lastPtr;  // ptr to last Node
+
+    /**
+     * @brief utility function for new Node allocation
+     * @return ListNode object
+     */
+    ListNode<NODETYPE> *getnewNode(const NODETYPE &valueOfNode)
+    {
+        return new ListNode<NODETYPE>(valueOfNode);
+    }
 }
 
 #endif
