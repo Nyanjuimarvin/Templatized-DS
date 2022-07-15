@@ -1,16 +1,13 @@
-/* LIST NODES.h
- *   by Nyanjuimarvin
- *
- * Created:
- *   July 15, 2022, 1:42:24 PM GMT+3
- * Last edited:
- *   July 15, 2022, 2:05:12 PM GMT+3
- * Auto updated?
- *   Yes
- *
- * Description:
- *   Template class ListtNode definition
- **/
+/**
+ * @file ListNodes.h
+ * @author Nyanjuimarvin
+ * @brief Template class ListNode definition
+ * @version 0.1
+ * @date 2022-07-15
+ * 
+ * @copyright Copyright (c) 2022
+ * 
+ */
 
 #ifndef LISTNODE_H
 #define LISTNODE_H
