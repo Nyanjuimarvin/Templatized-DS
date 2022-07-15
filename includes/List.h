@@ -13,7 +13,7 @@
 #define LIST_H
 
 #include <iostream>
-#include "ListNodes.h"
+#include "ListNode.h"
 
 template <typename NODETYPE>
 class List
@@ -36,7 +36,7 @@ public:
 
             while ( currentPtr != nullptr ){
                 tempPtr = currentPtr;
-                std::cout << tempPtr ->data << std::endl;
+                std::cout << tempPtr -> data << "\n";
                 currentPtr = currentPtr -> nextPtr;
                 delete tempPtr;
             }

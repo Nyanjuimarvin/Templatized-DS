@@ -2,3 +2,4 @@
 .cmake/
 CMakeFiles/
 Testing/
+Makefile
