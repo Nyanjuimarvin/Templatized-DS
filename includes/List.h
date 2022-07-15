@@ -19,9 +19,16 @@ template <typename NODETYPE>
 class List
 {
 
+public:
+    List()
+        : firstPtr(nullptr), lastptr(nullptr)
+    {
+        
+    }
+
 private:
-    ListNode<NODETYPE> *firstPtr;//ptr to first Node
-    ListNode<NODETYPE> *lastPtr;//ptr to last Node
+    ListNode<NODETYPE> *firstPtr; // ptr to first Node
+    ListNode<NODETYPE> *lastPtr;  // ptr to last Node
 }
 
 #endif
