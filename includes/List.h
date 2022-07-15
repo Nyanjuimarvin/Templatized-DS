@@ -20,10 +20,20 @@ class List
 {
 
 public:
+
     List()
         : firstPtr(nullptr), lastptr(nullptr)
     {
-        
+
+    }
+
+/**
+ * @brief isEmpty() function
+ * @return return true if empty else false
+ * 
+ */
+    bool isEmpty() const{
+        return firstPtr == nullptr;
     }
 
 private:
