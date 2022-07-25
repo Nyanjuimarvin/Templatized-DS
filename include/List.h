@@ -21,7 +21,7 @@ class List
 
 public:
     List()
-        : firstPtr(nullptr), lastptr(nullptr)
+        : firstPtr(nullptr), lastPtr(nullptr)
     {
     }
 
@@ -171,13 +171,13 @@ public:
         ListNode<NODETYPE> *currentPtr = firstPtr;
 
         std::cout << "Data in List Is: ";
-        while ( currentPtr != nullPtr )
+        while ( currentPtr != nullptr )
         {
             std::cout << currentPtr -> data << ", ";
             currentPtr = currentPtr -> nextPtr;
         }
 
-        std::cout "\n\n\n";
+        std::cout << "\n\n\n";
     }
 
 private:
@@ -192,6 +192,6 @@ private:
     {
         return new ListNode<NODETYPE> (valueOfNode);
     }
-}
+};
 
 #endif

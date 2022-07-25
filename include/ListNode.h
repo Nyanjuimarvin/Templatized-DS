@@ -38,6 +38,6 @@ public:
 private:
     NODETYPE data;
     ListNode<NODETYPE> *nextPtr;
-}
+};
 
 #endif
