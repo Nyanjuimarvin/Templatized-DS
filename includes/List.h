@@ -155,6 +155,25 @@ public:
         }
     }
 
+    void printList() const
+    {
+        if (isEmpty())
+        {
+            std::cout << "The List Is Empty\n";
+            return;
+        }
+
+        ListNode<NODETYPE> *currentPtr = firstPtr;
+
+        std::cout << "Data in List Is: ";
+        while(currentPtr != nullPtr ){
+            std::cout << currentPtr -> data << ", ";
+            currentPtr = currentPtr -> nextPtr;
+        }
+
+        std::cout "\n\n\n";
+    }
+
 private:
     ListNode<NODETYPE> *firstPtr; // ptr to first Node
     ListNode<NODETYPE> *lastPtr;  // ptr to last Node
