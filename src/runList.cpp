@@ -4,9 +4,9 @@
  * @brief Executable to test the List
  * @version 0.1
  * @date 2022-07-25
- * 
+ *
  * @copyright Copyright (c) 2022
- * 
+ *
  */
 
 #include <iostream>
@@ -23,6 +23,7 @@ void whatToDo()
               << " 4 to delete from end of list\n"
               << " 5 to end list processing\n";
 }
+
 
 int main(int, char **)
 {
