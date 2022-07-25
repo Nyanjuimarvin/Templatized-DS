@@ -155,6 +155,11 @@ public:
         }
     }
 
+    /**
+     * @brief printList Function
+     * @return void:: Prints data in given List
+     *
+     */
     void printList() const
     {
         if (isEmpty())
@@ -166,9 +171,10 @@ public:
         ListNode<NODETYPE> *currentPtr = firstPtr;
 
         std::cout << "Data in List Is: ";
-        while(currentPtr != nullPtr ){
-            std::cout << currentPtr -> data << ", ";
-            currentPtr = currentPtr -> nextPtr;
+        while (currentPtr != nullPtr)
+        {
+            std::cout << currentPtr->data << ", ";
+            currentPtr = currentPtr->nextPtr;
         }
 
         std::cout "\n\n\n";
