@@ -24,6 +24,56 @@ void whatToDo()
               << " 5 to end list processing\n";
 }
 
+/**
+ * @brief test the List and its Operations
+ *
+ */
+template <typename T>
+void testList( List<T> &listObject, std::string &objectTypeName )
+{
+    std::cout << "Testing a List of " << objectTypeName << std::endl;
+    whatToDo();
+
+    unsigned short operationChosen;
+    T value;
+
+    do
+    {
+        std::cout << "? ";
+        std::cin >> operationChosen;
+
+        switch ( operationChosen )
+        {
+        case 1:
+            std::cout << "Enter " << objectTypeName << ": ";
+            std::cin >> value;
+            listObject.insertAtFront(value);
+            listObject.printList();
+            break;
+
+        case 2:
+            std::cout << "Enter " << objectTypeName << ": ";
+            std::cin >> value;
+            listObject.insertAtBack(value);
+            listObject.printList();
+            break;
+
+        case 3:
+            if ( listObject.deleteFromFront(value) )
+                std::cout << value << " removed from the front of the List\n";
+            listObject.printList();
+            break;
+
+        case 4:
+            if ( listObject.deleteFromBack(value) )
+                std::cout << value << " removed from the back of the List\n";
+            listObject.printList();
+            break;
+
+    } while ( operationChosen < 5 );
+
+    std::cout << "Aborting List Processing...\n\n\n"
+}
 
 int main(int, char **)
 {
