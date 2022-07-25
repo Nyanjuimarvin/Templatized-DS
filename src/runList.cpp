@@ -29,7 +29,7 @@ void whatToDo()
  *
  */
 template <typename T>
-void testList( List<T> &listObject, std::string &objectTypeName )
+void testList(List<T> &listObject, const std::string &objectTypeName)
 {
     std::cout << "Testing a List of " << objectTypeName << std::endl;
     whatToDo();
@@ -42,7 +42,7 @@ void testList( List<T> &listObject, std::string &objectTypeName )
         std::cout << "? ";
         std::cin >> operationChosen;
 
-        switch ( operationChosen )
+        switch (operationChosen)
         {
         case 1:
             std::cout << "Enter " << objectTypeName << ": ";
@@ -59,22 +59,25 @@ void testList( List<T> &listObject, std::string &objectTypeName )
             break;
 
         case 3:
-            if ( listObject.deleteFromFront(value) )
+            if (listObject.deleteFromFront(value))
                 std::cout << value << " removed from the front of the List\n";
             listObject.printList();
             break;
 
         case 4:
-            if ( listObject.deleteFromBack(value) )
+            if (listObject.deleteFromBack(value))
                 std::cout << value << " removed from the back of the List\n";
             listObject.printList();
             break;
+        }
 
-    } while ( operationChosen < 5 );
+    } while (operationChosen < 5);
 
-    std::cout << "Aborting List Processing...\n\n\n"
+    std::cout << "Aborting List Processing...\n\n\n";
 }
 
-int main(int, char **)
+int main(int, char**)
 {
+    List<int> intList;
+    testList(intList, "Integer");
 }
