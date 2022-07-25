@@ -61,7 +61,7 @@ public:
      * @brief Insert Node at front of List
      *
      */
-    void insertAtFront( const NODETYPE &value )
+    void insertAtFront(const NODETYPE &value)
     {
         ListNode<NODETYPE> *newPtr = getNewNode(value);
 
@@ -71,10 +71,10 @@ public:
         }
         else
         {
-            //Point new Node to the Node that was previously first
-            newPtr -> nextPtr = firstPtr;
+            // Point new Node to the Node that was previously first
+            newPtr->nextPtr = firstPtr;
 
-            //Aim firstPtr at the new Node
+            // Aim firstPtr at the new Node
             firstPtr = newPtr;
         }
     }
@@ -83,18 +83,75 @@ public:
      * @brief insert Node at the back of the List
      *
      */
-    void insertAtBack( const NODETYPE &value )
+    void insertAtBack(const NODETYPE &value)
     {
         ListNode<NODETYPE> *newPtr = getNewNode(value);
 
-        if ( isEmpty() )
+        if (isEmpty())
         {
             firstPtr = lastPtr = newPtr;
         }
         else
         {
-            lastPtr -> nextPtr = newPtr;
+            lastPtr->nextPtr = newPtr;
             lastPtr = newPtr;
+        }
+    }
+
+    /**
+     * @brief Delete from the front of the list
+     * @return True if delete successful, false if unsuccessful
+     *
+     */
+    bool deleteFromFront(NODETYPE &value)
+    {
+        if (isEmpty())
+            return false;
+
+        else
+        {
+            ListNode<NODETYPE> *tempPtr = firstPtr; // Temporarily hold the item being deleted
+
+            if (firstPtr == lastPtr)          // List has one element
+                firstPtr = lastPtr = nullptr; // No nodes remain
+            else
+                firstPtr = firstPtr->nextPtr; // point to 2nd Node in the List
+
+            value = tempPtr->data;
+            delete tempPtr;
+            return true;
+        }
+    }
+
+    /**
+     * @brief Delete from the back of the list
+     * @return True if delete successful, false if unsuccessful
+     *
+     */
+    bool deleteFromBack(NODETYPE &value)
+    {
+        if (isEmpty())
+            return false;
+        else
+        {
+            ListNode<NODETYPE> *tempPtr = lastPtr;
+
+            if (firstPtr == lastPtr)
+                firstPtr = lastPtr = nullptr;
+            else
+            {
+                ListNode<NODETYPE> *currentPtr = firstPtr;
+
+                while (currentPtr->nextPtr != lastPtr) // Move to the last Node
+                    currentPtr = currentPtr->nextPtr;
+
+                lastPtr = currentPtr;
+                currentPtr->nextPtr = nullptr;
+            }
+
+            value = tempPtr->data;
+            delete tempPtr;
+            return true;
         }
     }
 
@@ -106,9 +163,9 @@ private:
      * @brief utility function for new Node allocation
      * @return ListNode object
      */
-    ListNode<NODETYPE> *getNewNode( const NODETYPE &valueOfNode )
+    ListNode<NODETYPE> *getNewNode(const NODETYPE &valueOfNode)
     {
-        return new ListNode<NODETYPE> (valueOfNode);
+        return new ListNode<NODETYPE>(valueOfNode);
     }
 }
 
