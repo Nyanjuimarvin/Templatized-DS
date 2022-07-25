@@ -28,18 +28,18 @@ public:
     ~List()
     {
 
-        if (!isEmpty())
+        if ( !isEmpty() )
         {
             std::cout << "Destroying Nodes....\n";
 
             ListNode<NODETYPE> *currentPtr = firstPtr;
             ListNode<NODETYPE> *tempPtr = nullptr;
 
-            while (currentPtr != nullptr)
+            while ( currentPtr != nullptr )
             {
                 tempPtr = currentPtr;
-                std::cout << tempPtr->data << "\n";
-                currentPtr = currentPtr->nextPtr;
+                std::cout << tempPtr -> data << "\n";
+                currentPtr = currentPtr -> nextPtr;
                 delete tempPtr;
             }
         }
@@ -61,18 +61,18 @@ public:
      * @brief Insert Node at front of List
      *
      */
-    void insertAtFront(const NODETYPE &value)
+    void insertAtFront( const NODETYPE &value )
     {
         ListNode<NODETYPE> *newPtr = getNewNode(value);
 
-        if (isEmpty())
+        if ( isEmpty() )
         {
             firstPtr = lastPtr = newPtr;
         }
         else
         {
             // Point new Node to the Node that was previously first
-            newPtr->nextPtr = firstPtr;
+            newPtr -> nextPtr = firstPtr;
 
             // Aim firstPtr at the new Node
             firstPtr = newPtr;
@@ -83,17 +83,17 @@ public:
      * @brief insert Node at the back of the List
      *
      */
-    void insertAtBack(const NODETYPE &value)
+    void insertAtBack( const NODETYPE &value )
     {
         ListNode<NODETYPE> *newPtr = getNewNode(value);
 
-        if (isEmpty())
+        if ( isEmpty() )
         {
             firstPtr = lastPtr = newPtr;
         }
         else
         {
-            lastPtr->nextPtr = newPtr;
+            lastPtr -> nextPtr = newPtr;
             lastPtr = newPtr;
         }
     }
@@ -103,21 +103,21 @@ public:
      * @return True if delete successful, false if unsuccessful
      *
      */
-    bool deleteFromFront(NODETYPE &value)
+    bool deleteFromFront( NODETYPE &value )
     {
-        if (isEmpty())
+        if ( isEmpty() )
             return false;
 
         else
         {
             ListNode<NODETYPE> *tempPtr = firstPtr; // Temporarily hold the item being deleted
 
-            if (firstPtr == lastPtr)          // List has one element
+            if ( firstPtr == lastPtr )          // List has one element
                 firstPtr = lastPtr = nullptr; // No nodes remain
             else
-                firstPtr = firstPtr->nextPtr; // point to 2nd Node in the List
+                firstPtr = firstPtr -> nextPtr; // point to 2nd Node in the List
 
-            value = tempPtr->data;
+            value = tempPtr -> data;
             delete tempPtr;
             return true;
         }
@@ -128,28 +128,28 @@ public:
      * @return True if delete successful, false if unsuccessful
      *
      */
-    bool deleteFromBack(NODETYPE &value)
+    bool deleteFromBack( NODETYPE &value )
     {
-        if (isEmpty())
+        if ( isEmpty() )
             return false;
         else
         {
             ListNode<NODETYPE> *tempPtr = lastPtr;
 
-            if (firstPtr == lastPtr)
+            if ( firstPtr == lastPtr )
                 firstPtr = lastPtr = nullptr;
             else
             {
                 ListNode<NODETYPE> *currentPtr = firstPtr;
 
-                while (currentPtr->nextPtr != lastPtr) // Move to the last Node
-                    currentPtr = currentPtr->nextPtr;
+                while ( currentPtr->nextPtr != lastPtr ) // Move to the last Node
+                    currentPtr = currentPtr -> nextPtr;
 
                 lastPtr = currentPtr;
-                currentPtr->nextPtr = nullptr;
+                currentPtr -> nextPtr = nullptr;
             }
 
-            value = tempPtr->data;
+            value = tempPtr -> data;
             delete tempPtr;
             return true;
         }
@@ -162,7 +162,7 @@ public:
      */
     void printList() const
     {
-        if (isEmpty())
+        if ( isEmpty() )
         {
             std::cout << "The List Is Empty\n";
             return;
@@ -171,10 +171,10 @@ public:
         ListNode<NODETYPE> *currentPtr = firstPtr;
 
         std::cout << "Data in List Is: ";
-        while (currentPtr != nullPtr)
+        while ( currentPtr != nullPtr )
         {
-            std::cout << currentPtr->data << ", ";
-            currentPtr = currentPtr->nextPtr;
+            std::cout << currentPtr -> data << ", ";
+            currentPtr = currentPtr -> nextPtr;
         }
 
         std::cout "\n\n\n";
@@ -188,9 +188,9 @@ private:
      * @brief utility function for new Node allocation
      * @return ListNode object
      */
-    ListNode<NODETYPE> *getNewNode(const NODETYPE &valueOfNode)
+    ListNode<NODETYPE> *getNewNode( const NODETYPE &valueOfNode )
     {
-        return new ListNode<NODETYPE>(valueOfNode);
+        return new ListNode<NODETYPE> (valueOfNode);
     }
 }
 
